@@ -1,0 +1,41 @@
+#!/bin/sh
+#
+# Based from https://gist.github.com/todgru/6224848
+#
+session="MARVS"
+
+# set up tmux
+tmux -2 start-server
+
+# create a new tmux session, starting vim from a saved session in the new window
+tmux -2 new-session -d -s $session -n CODING
+
+# create a new window
+tmux -2 new-window -t $session:1 -n SSH
+
+# Select pane 1, set work directory
+tmux -2 selectp -t 1 
+tmux -2 send-keys "work; clear" C-m 
+
+# Split pane 1 horizontal, start htop
+tmux -2 splitw -v
+tmux -2 send-keys "work; clear" C-m 
+
+# Select pane 2 
+tmux -2 selectp -t 2
+# Split pane 2 vertically
+tmux -2 splitw -h
+
+# select pane 3, set work directory
+tmux -2 selectp -t 3
+tmux -2 send-keys "work; clear" C-m 
+
+# return to main vim window
+tmux -2 select-window -t $session:0
+
+# Select pane 1
+tmux -2 selectp -t 1
+tmux -2 send-keys "work; clear; ls" C-m 
+
+# Finished setup, attach to the tmux session!
+tmux -2 attach-session -t $session
