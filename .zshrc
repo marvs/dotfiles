@@ -45,7 +45,3 @@ eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source $HOME/zsh-git-prompt/zshrc.sh
-# an example prompt
-PROMPT='%B%m%~%b$(git_super_status) %# '

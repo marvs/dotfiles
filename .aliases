@@ -1,1 +1,3 @@
 alias work="cd ~/Desktop/WORK"
+alias workg="cd ~/Desktop/WORK/GITHUB"
+alias workb="cd ~/Desktop/WORK/BITBUCKET"

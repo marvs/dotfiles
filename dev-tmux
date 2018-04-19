@@ -4,9 +4,6 @@
 #
 session="MARVS"
 
-# set up tmux
-tmux -2 start-server
-
 # create a new tmux session, starting vim from a saved session in the new window
 tmux -2 new-session -d -s $session -n CODING
 
