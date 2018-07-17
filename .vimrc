@@ -46,3 +46,5 @@ set hlsearch
 " Show line numbers
 set number
 
+" Remove whitespaces
+autocmd BufWritePre *.rb,*.js,*.jsx,*.slim,*.css,*.scss :%s/\s\+$//e
