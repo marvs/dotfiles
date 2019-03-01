@@ -6,6 +6,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-endwise'
+Plug 'w0rp/ale'
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
@@ -48,3 +50,18 @@ set number
 
 " Remove whitespaces
 autocmd BufWritePre *.rb,*.js,*.jsx,*.slim,*.css,*.scss :%s/\s\+$//e
+
+" Set specific linters
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'ruby': ['rubocop'],
+\}
+
+" Only run linters named in ale_linters settings.
+let g:ale_linters_explicit = 1
+
+let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_column_always = 1
+
+" Disable ALE auto highlights
+let g:ale_set_highlights = 0
